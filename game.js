@@ -6,15 +6,17 @@ var userClickedPattern = [];
 var started = false;
 var level = 0;
 
-$(document).keypress(function () {
+function startGame() {
   if (!started) {
-    $("#level-title").text("Level " + level);
-    $('#instruction-title').hide();
-    $('.instruction-button').hide();
-    nextSequence();
-    started = true;
+      $("#level-title").text("Level " + level);
+      $('#instruction-title').hide();
+      $('.instruction-button').hide();
+      nextSequence();
+      started = true;
   }
-});
+}
+
+$(document).on('keypress click', startGame);
 
 $(".btn").click(function () {
   var userChosenColour = $(this).attr("id");
