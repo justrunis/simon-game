@@ -78,6 +78,10 @@ ol  {
   gap: 20px;
 }
 
+.button-container * {
+  flex: 1;
+}
+
 .instruction-button {
   background-color: #FEF2BF;
   color: #011F3F;
@@ -88,6 +92,7 @@ ol  {
   font-size: 1rem;
   transition: background-color 0.3s ease;
   text-decoration: none;
+  flex: 0 0 25%;
 }
 
 .instruction-button:hover {
@@ -102,7 +107,7 @@ ol  {
   }
 
   .instruction-button{
-    font-size: 5rem;
+    font-size: 2rem;
   }
 
 }

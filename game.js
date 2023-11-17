@@ -39,11 +39,22 @@ function nextSequence() {
   var randomChosenColour = buttonColours[randomNumber];
   gamePattern.push(randomChosenColour);
 
-  $("#" + randomChosenColour)
-    .fadeIn(100)
-    .fadeOut(100)
-    .fadeIn(100);
-  playSound(randomChosenColour);
+  playPatternAtIndex(0);
+}
+
+function playPatternAtIndex(index) {
+  if (index < gamePattern.length) {
+    $("#" + gamePattern[index])
+      .fadeIn(100)
+      .fadeOut(100)
+      .fadeIn(100, function () {
+        playSound(gamePattern[index]);
+
+        setTimeout(function () {
+          playPatternAtIndex(index + 1);
+        }, 300);
+      });
+  }
 }
 
 function playSound(name) {
@@ -76,7 +87,7 @@ function animateWrong(){
     setTimeout(function () {
         $("body").removeClass("game-over");
     }, 200);
-    $
+    playSound("wrong");
 }
 
 function startOver(){
