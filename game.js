@@ -16,7 +16,9 @@ function startGame() {
   }
 }
 
-$(document).on('keypress click', startGame);
+$(document).on('keypress', startGame);
+
+$('.start-game').click(startGame);
 
 $(".btn").click(function () {
   var userChosenColour = $(this).attr("id");
